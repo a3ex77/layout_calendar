@@ -6,7 +6,7 @@ $bg-color-days-hover: #ffbfcb;
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  width: ($day-size * $day-count) + $day-count;
+  width: ($day-size * $day-count) + 6px;
   gap: 1px;
 
   &__day {
