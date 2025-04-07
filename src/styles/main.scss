@@ -16,9 +16,6 @@ $bg-color-days-hover: #ffbfcb;
     box-sizing: border-box;
     border: solid black 1px;
 
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-
     transition: all 0.5s ease;
 
     &:hover {
@@ -31,6 +28,8 @@ $bg-color-days-hover: #ffbfcb;
       &:nth-child(#{$numbers-of-days})::before {
         content: '#{$numbers-of-days}';
         display: flex;
+        font-family: Arial, sans-serif;
+        font-size: 30px;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -50,18 +49,14 @@ $bg-color-days-hover: #ffbfcb;
   );
 
   @each $day, $meaning in $start-days {
-    &.calendar--start-day-#{$day} {
-      .calendar__day:first-child {
-        margin-left: $meaning * ($day-size + 1px);
-      }
+    &--start-day-#{$day} &__day:first-child {
+      margin-left: $meaning * ($day-size + 1px);
     }
   }
 
   @for $days-count from 28 through 31 {
-    &.calendar--month-length-#{$days-count} {
-      .calendar__day:nth-child(n + #{$days-count + 1}) {
-        display: none;
-      }
+    &--month-length-#{$days-count} &__day:nth-child(n + #{$days-count + 1}) {
+      display: none;
     }
   }
 }
